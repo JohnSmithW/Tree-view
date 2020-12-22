@@ -1,0 +1,25 @@
+{
+  "extends": "airbnb",
+  "plugins": ["react"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+
+  "env": {
+    "browser": true,
+    "node": true
+  },
+
+  "rules": {
+    "linebreak-style": "off",
+    // Enforce tab width of 2 spaces.
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "indent": 2,
+    // Enforce line length to 130 characters.
+    "max-len": ["error", { "code": 130 }],
+    // Force all variable names to use camelCase style.
+    "camelcase": "error"
+  }
+}

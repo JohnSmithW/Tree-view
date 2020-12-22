@@ -1,0 +1,27 @@
+@import '../../scss/base.scss';
+
+.tree-node-container {
+  margin-top: 25px;
+  display: flex;
+  align-items: center;
+
+  &_child {
+    transform: translateX(80px) translateY(15px);
+  }
+
+  &__label {
+    margin-left: 10px;
+    font-family: $roboto;
+    font-size: $regular;
+    font-weight: $bold;
+  }
+}
+
+.tree-node {
+  width: 50px;
+  height: 50px;
+
+  border-radius: $circle;
+
+  background: $light-green;
+}

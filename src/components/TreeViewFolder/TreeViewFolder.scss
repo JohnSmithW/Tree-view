@@ -1,0 +1,68 @@
+@import '../../scss/base.scss';
+
+.tree-folder-container {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+
+  &__label {
+    margin-left: 10px;
+    font-family: $roboto;
+    font-size: $regular;
+    font-weight: $bold;
+  }
+
+  &_child {
+    transform: translateX(80px) translateY(15px);
+  }
+}
+
+.tree-folder {
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: $radius;
+
+  background: $pink;
+
+  cursor: pointer;
+
+  &__item {
+    width: 5px;
+    height: 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: $radius;
+
+    background: #fff;
+
+    position: relative;
+    transition: 0.5s;
+
+    &::after {
+      content: '';
+      position: absolute;
+
+      width: 5px;
+      height: 30px;
+
+      border-radius: $radius;
+
+      background: #fff;
+
+      transform: rotate(90deg);
+    }
+
+    &_open {
+      transform: rotate(180deg);
+      height: 0;
+    }
+  }
+}
