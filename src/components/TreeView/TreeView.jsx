@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './TreeView.scss';
 import TreeViewFolder from '../TreeViewFolder/TreeViewFolder';
 import TreeViewNode from '../TreeViewNode/TreeViewNode';
+import openFolder from '../../actions/openFolder';
 
 export default function TreeView() {
   const [tree, setTree] = useState([
@@ -48,17 +49,6 @@ export default function TreeView() {
     },
   ]);
 
-  function openFolder(id) {
-    setTree(
-      tree.map((element) => {
-        if (element.id === id) {
-          return { ...element, isOpen: !element.isOpen };
-        }
-        return element;
-      }),
-    );
-  }
-
   return (
     <div className="tree-main">
       <span className="tree-main__title">Tree view</span>
@@ -70,12 +60,10 @@ export default function TreeView() {
               <TreeViewFolder
                 key={index}
                 onClick={() => {
-                  openFolder(index);
-                  console.log(index);
+                  openFolder(setTree, tree, index);
                 }}
                 isOpen={item.isOpen}
                 list={item.list}
-                isChild={false}
                 label={item.label}
               />
             );

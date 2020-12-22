@@ -1,24 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './TreeViewFolder.scss';
 import TreeViewNode from '../TreeViewNode/TreeViewNode';
+import openFolder from '../../actions/openFolder';
 
-export default function TreeViewFolder({ isOpen, onClick, list, isChild, label }) {
+export default function TreeViewFolder({ isOpen, onClick, list, label }) {
   const [treeList, setTreeList] = useState([]);
 
   useEffect(() => {
     setTreeList(list);
   }, []);
-
-  function openFolder(id) {
-    setTreeList(
-      treeList.map((element) => {
-        if (element.id === id) {
-          return { ...element, isOpen: !element.isOpen };
-        }
-        return element;
-      }),
-    );
-  }
 
   return (
     <>
@@ -44,10 +34,9 @@ export default function TreeViewFolder({ isOpen, onClick, list, isChild, label }
                   key={index}
                   isOpen={item.isOpen}
                   onClick={() => {
-                    openFolder(index);
+                    openFolder(setTreeList, treeList, index);
                   }}
                   list={item.list}
-                  isChild={true}
                   label={item.label}
                 />
               );
