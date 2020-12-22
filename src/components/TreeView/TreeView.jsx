@@ -17,9 +17,32 @@ export default function TreeView() {
       isOpen: false,
       label: 'folder',
       list: [
-        { id: 0, isOpen: false, label: 'node', list: [] },
+        {
+          id: 0,
+          isOpen: false,
+          label: 'node',
+          list: [
+            { id: 0, isOpen: false, label: 'node', list: [] },
+            { id: 1, isOpen: false, label: 'node', list: [] },
+          ],
+        },
         { id: 1, isOpen: false, label: 'node', list: [] },
-        { id: 2, isOpen: false, label: 'node', list: [] },
+        {
+          id: 2,
+          isOpen: false,
+          label: 'node',
+          list: [
+            {
+              id: 0,
+              isOpen: false,
+              label: 'node',
+              list: [
+                { id: 0, isOpen: false, label: 'node', list: [] },
+                { id: 1, isOpen: false, label: 'node', list: [{ id: 0, isOpen: false, label: 'node', list: [] }] },
+              ],
+            },
+          ],
+        },
         { id: 3, isOpen: false, label: 'node', list: [] },
       ],
     },
